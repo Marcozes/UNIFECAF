@@ -1,0 +1,35 @@
+drop database teste123;
+create database teste123;
+use livros_live4;
+create table endereco(
+     id_endereco int auto_increment primary KEY auto_increment ,
+     cep char(9),
+     logradouro char(100),
+      bairro char(50)
+     );
+     create table autor(
+     id_autor int auto_increment primary KEY auto_increment ,
+     nome char(100)
+      );
+       create table livro(
+     id_livro int auto_increment primary KEY auto_increment ,
+      titulo char(9)
+      );
+        create table usuario(
+     id_usuario int auto_increment primary KEY auto_increment ,
+      nome char(100),
+       senha char(50),
+        telefone char(15),
+        id_endereco integer,
+        foreign key (id_endereco) references endereco(id_endereco)
+          foreign key (id_livro) references endereco(id_livro)
+        );
+        
+        insert into endereco (cep, logradouro, bairro) values ('02020','avenida Paulista','bela vista');
+         insert into endereco (cep, logradouro, bairro) values ('02020','avenida Italia','bela rua');
+          insert into endereco (cep, logradouro, bairro) values ('02020','avenida Capital','bela paisagem');
+           insert into endereco (cep, logradouro, bairro) values ('02020','avenida Castelo','bela vizinhaça');
+            insert into endereco (cep, logradouro, bairro) values ('02020','avenida Paulinha','bela grande');
+      
+   
+   select * from endereco;
